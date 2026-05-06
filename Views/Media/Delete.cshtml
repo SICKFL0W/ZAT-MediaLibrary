@@ -1,0 +1,25 @@
+@model MediaLibraryApp.Models.MediaItem
+
+@{
+    ViewData["Title"] = "Smazat položku";
+}
+
+<div class="alert alert-danger mt-4 shadow-sm" style="max-width: 600px; margin: auto;">
+    <h3 class="text-danger fw-bold">Opravdu chcete tuto položku smazat?</h3>
+    <hr />
+    
+    <div class="mb-3">
+        <strong>Název:</strong> @Model.Title <br />
+        <strong>Typ:</strong> @Model.GetType().Name <br />
+        <strong>Datum pořízení:</strong> @Model.DateAcquired.ToShortDateString()
+    </div>
+
+    <form asp-action="Delete" method="post" class="mt-4">
+        <input type="hidden" asp-for="Id" />
+        
+        <div class="d-flex justify-content-between">
+            <a asp-action="Index" class="btn btn-outline-secondary">Nene, vzal jsem to zpět</a>
+            <button type="submit" class="btn btn-danger fw-bold">Ano, trvale smazat</button>
+        </div>
+    </form>
+</div>

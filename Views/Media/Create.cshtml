@@ -1,0 +1,76 @@
+@model MediaLibraryApp.Models.MediaViewModel
+
+@{
+    ViewData["Title"] = "Přidat položku";
+}
+
+<div class="card shadow-sm max-w-md mx-auto mt-4" style="max-width: 600px;">
+    <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Nová položka</h3>
+    </div>
+    <div class="card-body">
+        <div asp-validation-summary="All" class="alert alert-danger fw-bold" role="alert"></div>
+        <form asp-action="Create" method="post">
+
+            <div class="mb-3">
+                <label asp-for="MediaType" class="form-label fw-bold">Typ média</label>
+                <select asp-for="MediaType" class="form-select" id="mediaTypeSelect">
+                    <option value="Book">Kniha</option>
+                    <option value="CD">Hudební CD</option>
+                    <option value="DVD">Film na DVD</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label fw-bold">Název</label>
+                <input asp-for="Title" class="form-control"/>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label fw-bold">Popis (volitelné)</label>
+                <textarea asp-for="Description" class="form-control" rows="2"></textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="BorrowedBy" class="form-label fw-bold text-info">Půjčeno komu (nechte prázdné, pokud je doma)</label>
+                <input asp-for="BorrowedBy" class="form-control border-info" placeholder="Např. Jan Novák..." />
+            </div>
+
+            <hr/>
+
+            <div class="mb-3" id="authorDiv">
+                <label asp-for="Author" class="form-label text-primary fw-bold">Autor knihy</label>
+                <input asp-for="Author" class="form-control"/>
+            </div>
+
+            <div class="mb-3" id="artistDiv" style="display:none;">
+                <label asp-for="Artist" class="form-label text-success fw-bold">Interpret (Zpěvák/Kapela)</label>
+                <input asp-for="Artist" class="form-control"/>
+            </div>
+
+            <div class="mb-3" id="directorDiv" style="display:none;">
+                <label asp-for="Director" class="form-label text-danger fw-bold">Režisér filmu</label>
+                <input asp-for="Director" class="form-control"/>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a asp-action="Index" class="btn btn-outline-secondary">Zrušit a zpět</a>
+                <button type="submit" class="btn btn-primary">Uložit do sbírky</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('mediaTypeSelect').addEventListener('change', function() {
+            var type = this.value;
+            document.getElementById('authorDiv').style.display = (type === 'Book') ? 'block' : 'none';
+            document.getElementById('artistDiv').style.display = (type === 'CD') ? 'block' : 'none';
+            document.getElementById('directorDiv').style.display = (type === 'DVD') ? 'block' : 'none';
+        });
+
+        typeSelect.dispatchEvent(new Event('change'));
+    </script>
+}
