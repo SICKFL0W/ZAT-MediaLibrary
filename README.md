@@ -62,9 +62,10 @@ Níže předkládám obhajobu k požadovaným bodům zadání:
 - Aplikace je plně připravena k otestování.
 - Návod ke spuštění:
 
-    - Rozbalte přiložený ZIP archiv.
+    - Naklonujte si repozitář z GitHubu (případně rozbalte přiložený ZIP archiv):
+      - git clone https://github.com/SICKFL0W/ZAT-MediaLibrary.git
 
-    - Otevřete soubor řešení (MediaLibraryApp.sln) ve Visual Studiu 2022 nebo JetBrains Rider.
+    - Otevřete soubor řešení (MediaLibraryApp.sln) v Visual Studio 2022 nebo JetBrains Rider.
 
     - Projekt stačí spustit (F5 / Play). Databáze je buď již přiložena v projektu (soubor .db), nebo si ji Entity Framework sám vygeneruje a aplikace okamžitě naběhne ve webovém prohlížeči.
 
