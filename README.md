@@ -70,3 +70,9 @@ Níže předkládám obhajobu k požadovaným bodům zadání:
     - Projekt stačí spustit (F5 / Play). Databáze je buď již přiložena v projektu (soubor .db), nebo si ji Entity Framework sám vygeneruje a aplikace okamžitě naběhne ve webovém prohlížeči.
 
 Děkuji za příležitost pracovat na tomto zadání a těším se na případnou osobní obhajobu řešení. :)
+
+**Screenshot aplikace:**
+<img width="1464" height="832" alt="SCR-20260512-shoi" src="https://github.com/user-attachments/assets/4717415e-94f2-43b6-a7b3-77b09709c6d3" />
+
+
+
